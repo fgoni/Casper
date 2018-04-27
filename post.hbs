@@ -11,30 +11,6 @@ into the {body} of the default.hbs template --}}
 
 {{!-- Everything inside the #post tags pulls data from the post --}}
 {{#post}}
-{{!-- Disqus --}}
-    <div id="disqus_thread"></div>
-    <script>
-
-        /**
-         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-
-        var disqus_config = function () {
-        this.page.url = "{{url absolute="true"}}";  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = "ghost-{{comment_id}}" // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-        };
-
-        (function () { // DON'T EDIT BELOW THIS LINE
-            var d = document, s = d.createElement('script');
-            s.src = 'https://EXAMPLE.disqus.com/embed.js';
-            s.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(s);
-        })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by
-        Disqus.</a></noscript>
-    {{!-- End Disqus --}}
-
     <main id="site-main" class="site-main outer">
         <div class="inner">
 
@@ -63,9 +39,9 @@ into the {body} of the default.hbs template --}}
                 {{!-- Email subscribe form at the bottom of the page --}}
                 {{#if @labs.subscribers}}
                     <section class="subscribe-form">
-                        <h3 class="subscribe-form-title">Subscribe to {{@blog.title}}</h3>
-                        <p>Get the latest posts delivered right to your inbox</p>
-                        {{subscribe_form placeholder="youremail@example.com"}}
+                        <h3 class="subscribe-form-title">Suscribite a {{@blog.title}}</h3>
+                        <p>Recibí los últimos posts en tu casilla!</p>
+                        {{subscribe_form placeholder="juan.perez@ejemplo.com"}}
                     </section>
                 {{/if}}
 
@@ -89,6 +65,31 @@ into the {body} of the default.hbs template --}}
                     If you want to embed comments, this is a good place to do it!
                 </section>
                 --}}
+
+                {{!-- Disqus --}}
+                <div id="disqus_thread"></div>
+                <script>
+
+                    /**
+                     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+                    var disqus_config = function () {
+                        this.page.url = "{{url absolute="true"}}";  // Replace PAGE_URL with your page's canonical URL variable
+                        this.page.identifier = "ghost-{{comment_id}}" // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                    };
+
+                    (function () { // DON'T EDIT BELOW THIS LINE
+                        var d = document, s = d.createElement('script');
+                        s.src = 'https://cafedepormedio.disqus.com/embed.js';
+                        s.setAttribute('data-timestamp', +new Date());
+                        (d.head || d.body).appendChild(s);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments
+                    powered by
+                    Disqus.</a></noscript>
+                {{!-- End Disqus --}}
 
             </article>
 
@@ -151,7 +152,6 @@ into the {body} of the default.hbs template --}}
 
     {{!-- Floating header which appears on-scroll, included from includes/floating-header.hbs --}}
     {{> floating-header}}
-
 {{/post}}
 
 {{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
@@ -164,8 +164,8 @@ into the {body} of the default.hbs template --}}
         //   scrolling but continuous processing even when not scrolling
         $(document).ready(function () {
             // Start fitVids
-            var $postContent = $(".post-full-content");
-            $postContent.fitVids();
+//            var $postContent = $(".post-full-content");
+//            $postContent.fitVids();
             // End fitVids
 
             var progressBar = document.querySelector('progress');
